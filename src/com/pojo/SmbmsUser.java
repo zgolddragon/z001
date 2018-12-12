@@ -13,6 +13,8 @@ public class SmbmsUser {
 	private String phone;
 	private String address;
 	private int userPole;
+	
+	private int ii;
 	/**
 	 * @return the id
 	 */
