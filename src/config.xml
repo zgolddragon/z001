@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+<!-- 加载数据库配置文件  -->
+<properties resource="database.properties"></properties>
+
+<!-- 用于对框架的全局设置进行处理  -->
+<!-- 日志处理 -->
+<settings>
+<setting name="logImpl" value="LOG4J"/>
+</settings>
+
+<!-- 使用包扫描将该包下所有的类名起别名，别名默认为类名 -->
+<typeAliases>
+<package name="com.pojo"/>
+</typeAliases>
+
+<!-- 创建运行环境 -->
+<environments default="dev">
+   <environment id="dev">
+       <!-- 设置事物管理JDBC由代码控制 -->
+       <transactionManager type="JDBC"></transactionManager>
+       <dataSource type="POOLED"><!-- 用于创建数据库连接的设置 -->
+          <property name="driver" value="${driver}"/>
+          <property name="url" value="${url}"/>
+          <property name="username" value="${user}"/>
+          <property name="password" value="${password}"/>
+       </dataSource>
+   </environment>
+</environments>
+
+<!-- 配置mapper映射文件 -->
+<mappers>
+  <mapper resource="com/dao/SmbmsUserDAO.xml"/>
+</mappers>
+
+</configuration>
